@@ -1,0 +1,75 @@
+/* TEXT */
+%txtHidden {
+  text-indent: -9999em;
+}
+
+%tal {
+  text-align: left;
+}
+
+%tar {
+  text-align: right;
+}
+
+%tac {
+  text-align: center;
+}
+
+/* COLOR */
+$white: #fff;
+$point-color: #4285f4;
+
+/* LAYOUT */
+.layout-inner {
+  max-width: 1020px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@mixin flexBox($justify: flex-start, $align: stretch) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin posRelative {
+  position: relative;
+}
+
+@mixin posAbsolute {
+  position: absolute;
+}
+
+@mixin posAbsoluteCenter($direc) {
+  @include posAbsolute();
+
+  @if $direc== 'center' {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if $direc== 'Xcenter' {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else if $direc== 'Ycenter' {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+/* ETC */
+@mixin borderSolid($width, $color, $position) {
+  border-width: $width;
+  border-color: $color;
+
+  @if $position== 'all' {
+    border-style: solid;
+  } @else if $position== 'top' {
+    border-top-style: solid;
+  } @else if $position== 'bottom' {
+    border-bottom-style: solid;
+  } @else if $position== 'left' {
+    border-left-style: solid;
+  } @else if $position== 'right' {
+    border-right-style: solid;
+  }
+}
