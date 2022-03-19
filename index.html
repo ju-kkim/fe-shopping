@@ -18,7 +18,7 @@
             <ul>
               <li><a href="#!">즐겨찾기</a></li>
               <li class="apply_store">
-                <button type="button" class="apply_store--btn">입점신청<i class="header__spriteImg icon"></i></button>
+                <button type="button" class="apply_store--btn">입점신청<i class="header__spriteImg apply_store--icon"></i></button>
                 <ul class="apply_store__list">
                   <li><a href="#!">오픈마켓</a></li>
                   <li><a href="#!">여행·티켓</a></li>
@@ -42,16 +42,16 @@
           <div class="header__category">
             <button type="button" class="header__spriteImg header__category--btn">카테고리</button>
             <nav class="header__category-list">
-              <ul class="category-list__dept01">
+              <ul class="category-list__depth01">
                 <li><a href="#!">패션의류/잡화</a></li>
                 <li><a href="#!">뷰티</a></li>
                 <li><a href="#!">출산/유아동</a></li>
                 <li><a href="#!">식품</a></li>
               </ul>
-              <ul class="category-list__dept01">
+              <ul class="category-list__depth01">
                 <li><a href="#!">여행/티켓</a></li>
               </ul>
-              <ul class="category-list__dept01">
+              <ul class="category-list__depth01">
                 <li><a href="#!">테마관<i class="new_icon"></i></a></li>
               </ul>
             </nav>
@@ -66,7 +66,7 @@
               <div class="header__search">
                 <form action="#!" class="search-form">
                   <div class="search-form__selector-box">
-                    <button type="button" class="selector--btn">전체 <i class="header__spriteImg icon"></i></button>
+                    <button type="button" class="selector--btn">전체 <i class="header__spriteImg selector--btn--icon"></i></button>
                     <ul class="selector-box__list">
                       <li><a href="#!">전체</a></li>
                       <li><a href="#!">여성패션</a></li>
@@ -80,7 +80,22 @@
                       <li><a href="#!">생활용품</a></li>
                     </ul>
                   </div>
-                  <input type="text" class="search-form--input" placeholder="찾고 싶은 상품을 검색해보세요!">
+                  <div class="search-form--input-box">
+                    <input type="text" class="search-form--input" placeholder="찾고 싶은 상품을 검색해보세요!">
+                    <div class="search-form--recom">
+                      <p class="resent_ttl">최근 검색어</p>
+                      <div class="search_words">
+                        <a href="#!">
+                          <strong>일치글자</strong>
+                          검색추천
+                        </a>
+                      </div>
+                      <div class="recent_controll">
+                        <button type="button">전체 삭제</button>
+                        <button type="button">최신검색어끄기</button>
+                      </div>
+                    </div>
+                  </div>
                   <button type="submit" class="header__spriteImg header__search--btn">검색</button>
                 </form>
               </div>
@@ -98,7 +113,7 @@
               </div>
             </div>
             <nav class="header__gnb">
-              <ul class="gnl_list">
+              <ul class="gnb_list">
                 <li><a href="#!">로켓배송</a></li>
                 <li><a href="#!">로켓프레시</a></li>
                 <li><a href="#!">쿠팡비즈</a></li>
