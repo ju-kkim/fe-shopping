@@ -7,6 +7,10 @@
   text-align: left;
 }
 
+.search-form--input-box .search-form--recom, .search-form__selector-box .selector-box__list, .search-form__selector-box .selector--btn, .header__main .header__category-list, .header__bar .apply_store__list li, .header .gnb_list a, .header__user-menu {
+  font-size: 12px;
+}
+
 /* COLOR */
 /* LAYOUT */
 .layout-inner {
@@ -16,9 +20,7 @@
 }
 
 /* ETC */
-.header__spriteImg {
-  background: url(https://static.coupangcdn.com/image/coupang/common/pc_header_img_sprite_180104.png) no-repeat;
-}
+/* HEADER */
 .header .layout-inner {
   display: flex;
   justify-content: space-between;
@@ -58,20 +60,19 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 50px;
-  height: 100%;
-  background-position: -112px -71px;
 }
 .header__search .search-form--input {
+  width: 100%;
+  height: 100%;
   padding-right: 50px;
   font-size: 14px;
+  box-sizing: border-box;
 }
 .header__user-menu {
   display: flex;
   justify-content: center;
   align-items: flex-end;
   flex-shrink: 0;
-  font-size: 12px;
 }
 .header__user-menu a {
   margin-left: 20px;
@@ -80,17 +81,11 @@
   margin: 0 auto;
 }
 .header__user-menu a .icon.mycoupang {
-  width: 29px;
-  height: 31px;
   margin-bottom: 5px;
-  background-position: -112px -42px;
 }
 .header__user-menu a .icon.cart {
   position: relative;
-  width: 40px;
-  height: 41px;
   margin-bottom: 2px;
-  background-position: -112px 0;
 }
 .header__user-menu a .icon.cart .cart_num {
   position: absolute;
@@ -101,16 +96,22 @@
   font-weight: 700;
   font-family: Tahoma;
 }
+.header .gnb_list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.header .gnb_list a {
+  display: block;
+  padding: 10px 14px;
+}
 
 .header__bar .apply_store {
   position: relative;
 }
-.header__bar .apply_store--btn .icon {
+.header__bar .apply_store--btn .apply_store--icon {
   display: inline-block;
   margin-left: 4px;
-  width: 10px;
-  height: 3px;
-  background-position: -153px -36px;
   vertical-align: middle;
 }
 .header__bar .apply_store__list {
@@ -130,7 +131,6 @@
 .header__bar .apply_store__list li {
   margin: 12px 0;
   line-height: 1;
-  font-size: 12px;
 }
 .header__bar .apply_store__list li:hover {
   color: #4285f4;
@@ -152,19 +152,43 @@
   margin-right: 30px;
 }
 .header__main .header__category--btn {
-  width: 100%;
-  height: 115px;
   padding-top: 45px;
   font-size: 13px;
   color: #fff;
-  background-position: 0 0;
 }
 .header__main .header__category-list {
+  display: none;
   position: absolute;
   left: 0;
+  right: 0;
   top: 100%;
+  background-color: #fff;
+  border-width: 1px;
+  border-color: #ddd;
+  border-style: solid;
+}
+.header__main .header__category-list ul {
+  padding: 10px 20px;
+}
+.header__main .header__category-list ul + ul {
+  border-width: 1px;
+  border-color: #ddd;
+  border-top-style: solid;
+}
+.header__main .header__category-list ul a {
+  display: block;
+  padding: 5px 0;
+}
+.header__main .header__category-list ul a:hover {
+  text-decoration: underline;
+  color: #4285f4;
+  font-weight: 700;
 }
 .header__main .header__contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: column;
   width: 100%;
   padding-top: 25px;
 }
@@ -172,6 +196,40 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.header__spriteImg {
+  background: url(https://static.coupangcdn.com/image/coupang/common/pc_header_img_sprite_180104.png) no-repeat;
+}
+.header__spriteImg.header__category--btn {
+  width: 100%;
+  height: 115px;
+  background-position: 0 0;
+}
+.header__spriteImg.apply_store--icon {
+  width: 10px;
+  height: 3px;
+  background-position: -153px -36px;
+}
+.header__spriteImg.selector--btn--icon {
+  width: 30px;
+  height: 30px;
+  background-position: 6px -165px;
+}
+.header__spriteImg.header__search--btn {
+  width: 50px;
+  height: 100%;
+  background-position: -112px -71px;
+}
+.header__spriteImg.mycoupang {
+  width: 29px;
+  height: 31px;
+  background-position: -112px -42px;
+}
+.header__spriteImg.cart {
+  width: 40px;
+  height: 41px;
+  background-position: -112px 0;
 }
 
 .search-form {
@@ -195,16 +253,77 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  font-size: 12px;
   padding-left: 10px;
 }
-.search-form__selector-box .selector--btn .icon {
-  width: 30px;
-  height: 30px;
-  background-position: 6px -165px;
+.search-form__selector-box .selector-box__list {
+  display: none;
+  border-width: 1px;
+  border-color: #ddd;
+  border-style: solid;
+  padding: 20px 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
 }
-.search-form--input {
+.search-form__selector-box .selector-box__list a {
+  display: block;
+  padding: 5px 0;
+}
+.search-form__selector-box .selector-box__list a:hover {
+  color: #4285f4;
+  text-decoration: underline;
+}
+.search-form--input-box {
   width: 100%;
+}
+.search-form--input-box .search-form--recom {
+  display: none;
+  border-width: 1px;
+  border-color: #ddd;
+  border-style: solid;
+  background-color: #fff;
+}
+.search-form--input-box .search-form--recom .resent_ttl {
+  margin: 0 10px;
+  padding: 15px 0 10px;
+  border-width: 1px;
+  border-color: #ddd;
+  border-bottom-style: solid;
+  font-weight: 700;
+}
+.search-form--input-box .search-form--recom .search_words {
+  height: 150px;
+  padding: 10px;
+  overflow-y: scroll;
+}
+.search-form--input-box .search-form--recom .search_words a {
+  display: block;
+  margin-bottom: 10px;
+}
+.search-form--input-box .search-form--recom .search_words a strong {
+  color: #4285f4;
+}
+.search-form--input-box .search-form--recom .search_words a:hover {
+  text-decoration: underline;
+}
+.search-form--input-box .search-form--recom.resent a:hover {
+  color: #4285f4;
+}
+.search-form--input-box .search-form--recom .recent_controll {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-width: 1px;
+  border-color: #ddd;
+  border-style: solid;
+  padding: 10px;
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
+}
+.search-form--input-box .search-form--recom .recent_controll button {
+  color: #888;
+}
+.search-form--input-box .search-form--recom .recent_controll button:hover {
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=style.css.map */
