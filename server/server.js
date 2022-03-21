@@ -4,7 +4,7 @@ const path = require('path');
 const rootDirName = path.join(__dirname, '../');
 const PORT = 3000;
 
-app.use(express.static(rootDirName + '/public'));
+app.use(express.static(rootDirName + 'public'));
 
 app.get('/', (req, res) => {
   res.sendFile(rootDirName + 'index.html');
