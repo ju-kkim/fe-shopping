@@ -4,7 +4,13 @@ const path = require('path');
 const rootDirName = path.join(__dirname, '../');
 const PORT = 3000;
 
+const searchCategory = require('./data/searchCategory.json');
+
 app.use(express.static(rootDirName + 'public'));
+
+app.get('/search/category', (req, res) => {
+  res.json(searchCategory);
+});
 
 app.get('/', (req, res) => {
   res.sendFile(rootDirName + 'index.html');
