@@ -82,18 +82,12 @@
               <div class="header__search">
                 <form action="#!" class="search-form">
                   <div class="search-form__selector-box">
-                    <button type="button" class="selector--btn">전체 <i class="header__spriteImg selector--btn--icon"></i></button>
+                    <button type="button" class="selector--btn" data-search="selectorBtn">
+                      <span class="selector--btn--text">전체</span>
+                      <i class="header__spriteImg selector--btn--icon"></i>
+                    </button>
                     <ul class="selector-box__list">
-                      <li><a href="#!">전체</a></li>
-                      <li><a href="#!">여성패션</a></li>
-                      <li><a href="#!">남성패션</a></li>
-                      <li><a href="#!">남녀 공용 의류</a></li>
-                      <li><a href="#!">유아동패션</a></li>
-                      <li><a href="#!">뷰티</a></li>
-                      <li><a href="#!">출산/유아동</a></li>
-                      <li><a href="#!">식품</a></li>
-                      <li><a href="#!">주방용품</a></li>
-                      <li><a href="#!">생활용품</a></li>
+                      
                     </ul>
                   </div>
                   <div class="search-form--input-box">
@@ -112,7 +106,7 @@
                       </div>
                     </div>
                   </div>
-                  <button type="submit" class="header__spriteImg header__search--btn">검색</button>
+                  <button type="submit" class="header__spriteImg header__search--btn" data-search="submitBtn">검색</button>
                 </form>
               </div>
               <div class="header__user-menu">
@@ -146,5 +140,7 @@
       </div>
     </header>
   </div>
+
+  <script type="module" src="./js/main.js"></script>
 </body>
 </html>
