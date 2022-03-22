@@ -290,6 +290,10 @@
       padding-left: 10px;
       @extend %fontSize12;
       @extend %tal;
+
+      > * {
+        pointer-events: none;
+      }
     }
 
     .selector-box__list {

@@ -285,6 +285,9 @@
   width: 100%;
   padding-left: 10px;
 }
+.search-form__selector-box .selector--btn > * {
+  pointer-events: none;
+}
 .search-form__selector-box .selector-box__list {
   border-width: 1px;
   border-color: #ddd;
