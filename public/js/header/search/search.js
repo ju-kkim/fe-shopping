@@ -18,7 +18,7 @@ class Search {
 
     switch (target.dataset.search) {
       case 'selectorBtn':
-        this.categorySelector.toggleDropDown.call(this.categorySelector);
+        this.categorySelector.dropDownMenu.call(this.categorySelector);
         break;
       case 'searchCategory':
         this.categorySelector.selectCategory.call(

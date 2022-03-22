@@ -9,7 +9,7 @@ class CategorySelector {
     this.toggleClassName = 'open';
   }
 
-  toggleDropDown(e) {
+  dropDownMenu(e) {
     if (this.categoryList.innerText) {
       toggleClass(this.selectBox, this.toggleClassName);
       return;
