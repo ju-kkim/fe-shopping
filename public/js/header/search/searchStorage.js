@@ -4,7 +4,7 @@ class SearchStorage {
     this.resentSearch = [];
     this.storage = localStorage;
 
-    this.getStorage();
+    this.loadStorage();
   }
 
   getResentSearch() {
@@ -20,7 +20,7 @@ class SearchStorage {
     this.storage.setItem(this.STORAGE_NAME, JSON.stringify(this.resentSearch));
   }
 
-  getStorage() {
+  loadStorage() {
     const currentStorage = JSON.parse(this.storage.getItem(this.STORAGE_NAME));
     if (currentStorage) {
       this.resentSearch = currentStorage;

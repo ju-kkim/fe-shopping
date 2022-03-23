@@ -45,7 +45,7 @@ class SearchBar {
   }
 
   isValue(keyword) {
-    return keyword ? true : false;
+    return !!keyword;
   }
 
   isResentKeyword() {

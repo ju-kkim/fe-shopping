@@ -37,16 +37,13 @@ class Search {
 
     switch (target.dataset.search) {
       case 'selectorBtn':
-        this.categorySelector.dropDownMenu.call(this.categorySelector);
+        this.categorySelector.dropDownMenu();
         break;
       case 'searchCategory':
-        this.categorySelector.selectCategory.call(
-          this.categorySelector,
-          target
-        );
+        this.categorySelector.selectCategory(target);
         break;
       case 'submitBtn':
-        this.searchBar.searchKeyword.call(this.searchBar, this.searchInput);
+        this.searchBar.searchKeyword(this.searchInput);
         break;
       default:
         return;
