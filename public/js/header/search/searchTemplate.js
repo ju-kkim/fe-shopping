@@ -7,4 +7,13 @@ const categoryTemp = (categorys) => {
   return html;
 };
 
-export { categoryTemp };
+const resentKeywordTemp = (keywords) => {
+  const html = keywords
+    .map((keyword) => {
+      return `<a href="#!">${keyword}</a>`;
+    })
+    .join('');
+  return html;
+};
+
+export { categoryTemp, resentKeywordTemp };
