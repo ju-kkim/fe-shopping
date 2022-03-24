@@ -56,6 +56,9 @@ class Search {
       case 'deleteAll':
         this.searchBar.deleteRecentKeyword();
         break;
+      case 'modeBtn':
+        this.searchBar.changeRecentMode(relatedTarget, this.searchInput);
+        break;
       default:
         this.searchBar.hideRecomBox();
     }
