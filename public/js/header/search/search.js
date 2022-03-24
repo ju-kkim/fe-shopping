@@ -25,13 +25,10 @@ class Search {
       this.searchBar.init.bind(this.searchBar, this.searchInput)
     );
 
-    this.searchInput.addEventListener(
-      'blur',
-      this.searchBar.hideRecomBox.bind(this.searchBar)
-    );
+    this.searchInput.addEventListener('blur', this.blurHandler.bind(this));
   }
 
-  clickHandler = (e) => {
+  clickHandler(e) {
     e.preventDefault();
     const target = e.target;
 
@@ -48,7 +45,21 @@ class Search {
       default:
         return;
     }
-  };
+  }
+
+  blurHandler({ relatedTarget }) {
+    if (!relatedTarget) {
+      this.searchBar.hideRecomBox();
+      return;
+    }
+    switch (relatedTarget.dataset.recent) {
+      case 'deleteAll':
+        this.searchBar.deleteRecentKeyword();
+        break;
+      default:
+        this.searchBar.hideRecomBox();
+    }
+  }
 }
 
 export { Search };

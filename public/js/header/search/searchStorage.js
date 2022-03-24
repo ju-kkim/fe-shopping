@@ -26,6 +26,11 @@ class SearchStorage {
       this.resentSearch = currentStorage;
     }
   }
+
+  deleteStorage() {
+    this.resentSearch = [];
+    this.storage.removeItem(this.STORAGE_NAME);
+  }
 }
 
 export { SearchStorage };

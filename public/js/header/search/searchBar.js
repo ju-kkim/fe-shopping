@@ -63,6 +63,11 @@ class SearchBar {
     this.hideRecomBox();
   }
 
+  deleteRecentKeyword() {
+    this.storage.deleteStorage();
+    this.hideRecomBox();
+  }
+
   renderKeyword(keywords) {
     const keywordBox = this.recomBox.querySelector('.search_words');
     keywordBox.innerHTML = resentKeywordTemp(keywords);
