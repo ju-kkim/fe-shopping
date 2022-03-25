@@ -1,22 +1,42 @@
+import { AutoCompleteController } from './autoCompleteController.js';
 import { SearchStorage } from './searchStorage.js';
 import { resentKeywordTemp } from './searchTemplate.js';
 
 class SearchBar {
   constructor() {
     this.recomBox = document.querySelector('.search-form--recom');
+    this.keywordBox = this.recomBox.querySelector('.search_words');
     this.modeBtn = this.recomBox.querySelector('.recent_mode_btn');
     this.storage = new SearchStorage();
+    this.autoComplete = new AutoCompleteController();
     this.recentMode = true;
+    this.firstInput = true;
   }
 
   init(input) {
     const keyword = input.value;
     if (this.isValue(keyword)) {
-      this.hideResentBox();
+      this.getAutoCompleteKeyword(input);
+      this.firstInput = false;
       return;
     }
-
+    this.firstInput = true;
     this.showResentResult();
+  }
+
+  getAutoCompleteKeyword(input) {
+    const keyword = input.value;
+    if (this.firstInput) {
+      this.keywordBox.innerText = '';
+    }
+    this.firstInput = !keyword;
+    this.autoComplete.getRecomKeyword(keyword, this.renderKeyword.bind(this));
+    this.hideResentBox();
+    this.showRecomBox();
+    if (!this.isValue(keyword)) {
+      this.init(input);
+      return;
+    }
   }
 
   showResentResult() {
@@ -25,9 +45,10 @@ class SearchBar {
       this.hideRecomBox();
       return;
     }
-    this.renderKeyword(resentKeywordList);
-    this.showRecomBox();
     this.showResentBox();
+    const keywordHtml = resentKeywordTemp(resentKeywordList);
+    this.renderKeyword(keywordHtml);
+    this.showRecomBox();
   }
 
   showRecomBox() {
@@ -76,26 +97,24 @@ class SearchBar {
   }
 
   renderModeTypeView() {
-    const searchWords = this.recomBox.querySelector('.search_words');
     const resentTtl = this.recomBox.querySelector('.resent_ttl');
 
     if (this.recentMode) {
-      searchWords.style.display = 'block';
+      this.keywordBox.style.display = 'block';
       resentTtl.innerText = '최근 검색어';
       this.modeBtn.innerText = '최근검색어끄기';
       this.modeBtn.setAttribute('data-mode', 'off');
       return;
     }
 
-    searchWords.style.display = 'none';
+    this.keywordBox.style.display = 'none';
     resentTtl.innerText = '최근 검색어 저장 기능이 꺼져있습니다.';
     this.modeBtn.innerText = '최근검색어켜기';
     this.modeBtn.setAttribute('data-mode', 'on');
   }
 
-  renderKeyword(keywords) {
-    const keywordBox = this.recomBox.querySelector('.search_words');
-    keywordBox.innerHTML = resentKeywordTemp(keywords);
+  renderKeyword(html) {
+    this.keywordBox.innerHTML = html;
   }
 }
 

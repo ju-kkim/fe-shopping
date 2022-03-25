@@ -22,7 +22,10 @@ class Search {
 
     this.searchInput.addEventListener(
       'input',
-      this.searchBar.init.bind(this.searchBar, this.searchInput)
+      this.searchBar.getAutoCompleteKeyword.bind(
+        this.searchBar,
+        this.searchInput
+      )
     );
 
     this.searchInput.addEventListener('blur', this.blurHandler.bind(this));
@@ -52,12 +55,15 @@ class Search {
       this.searchBar.hideRecomBox();
       return;
     }
-    switch (relatedTarget.dataset.recent) {
+    switch (relatedTarget.dataset.blur) {
       case 'deleteAll':
         this.searchBar.deleteRecentKeyword();
         break;
       case 'modeBtn':
         this.searchBar.changeRecentMode(relatedTarget, this.searchInput);
+        break;
+      case 'keyword':
+        console.log('키워드 선택');
         break;
       default:
         this.searchBar.hideRecomBox();

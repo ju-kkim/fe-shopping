@@ -10,10 +10,23 @@ const categoryTemp = (categorys) => {
 const resentKeywordTemp = (keywords) => {
   const html = keywords
     .map((keyword) => {
-      return `<a href="#!">${keyword}</a>`;
+      return `<a href="#!" data-blur="keyword">${keyword}</a>`;
     })
     .join('');
   return html;
 };
 
-export { categoryTemp, resentKeywordTemp };
+const autoCompleteKeywordTemp = (value, keywords) => {
+  const html = keywords
+    .map((keyword) => {
+      const keywordValue = keyword.value;
+      return `<a href="#!" d안ata-blur="keyword">${keywordValue.replace(
+        value,
+        `<strong>${value}</strong>`
+      )}</a>`;
+    })
+    .join('');
+  return html;
+};
+
+export { categoryTemp, resentKeywordTemp, autoCompleteKeywordTemp };
