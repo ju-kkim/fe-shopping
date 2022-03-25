@@ -12,6 +12,7 @@ class SearchStorage {
   }
 
   addResentSearch(keyword) {
+    if (this.resentSearch.includes(keyword)) return;
     this.resentSearch.push(keyword);
     this.setStorage();
   }
