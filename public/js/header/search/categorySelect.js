@@ -18,7 +18,7 @@ class CategorySelector {
   }
 
   getOption() {
-    getData('search/category')
+    getData('http://localhost:3000/search/category')
       .then((data) => categoryTemp(data))
       .then((data) => (this.categoryList.innerHTML = data))
       .then(toggleClass(this.selectBox, this.toggleClassName));
