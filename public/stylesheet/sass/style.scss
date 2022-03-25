@@ -334,20 +334,23 @@
     .search-form--recom {
       display: none;
       @include borderSolid(1px, #ddd, all);
+      border-bottom: none;
       background-color: $white;
       @extend %fontSize12;
+      box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
 
       .resent_ttl {
         display: none;
         margin: 0 10px;
         padding: 15px 0 10px;
-        @include borderSolid(1px, #ddd, bottom);
+
         font-weight: 700;
       }
 
       .search_words {
         height: 150px;
-        padding: 10px;
+        margin: 0 10px;
+        padding: 10px 0;
         overflow-y: scroll;
 
         a {
@@ -369,7 +372,6 @@
         @include borderSolid(1px, #ddd, all);
         padding: 10px;
         background-color: #f5f5f5;
-        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
 
         button {
           color: #888;
@@ -383,6 +385,10 @@
       &.resent {
         a:hover {
           color: $point-color;
+        }
+
+        .search_words {
+          @include borderSolid(1px, #ddd, top);
         }
 
         .recent_controll {

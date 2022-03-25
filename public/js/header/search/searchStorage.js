@@ -4,7 +4,7 @@ class SearchStorage {
     this.resentSearch = [];
     this.storage = localStorage;
 
-    this.getStorage();
+    this.loadStorage();
   }
 
   getResentSearch() {
@@ -12,6 +12,7 @@ class SearchStorage {
   }
 
   addResentSearch(keyword) {
+    if (this.resentSearch.includes(keyword)) return;
     this.resentSearch.push(keyword);
     this.setStorage();
   }
@@ -20,11 +21,16 @@ class SearchStorage {
     this.storage.setItem(this.STORAGE_NAME, JSON.stringify(this.resentSearch));
   }
 
-  getStorage() {
+  loadStorage() {
     const currentStorage = JSON.parse(this.storage.getItem(this.STORAGE_NAME));
     if (currentStorage) {
       this.resentSearch = currentStorage;
     }
+  }
+
+  deleteStorage() {
+    this.resentSearch = [];
+    this.storage.removeItem(this.STORAGE_NAME);
   }
 }
 

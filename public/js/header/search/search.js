@@ -22,36 +22,53 @@ class Search {
 
     this.searchInput.addEventListener(
       'input',
-      this.searchBar.init.bind(this.searchBar, this.searchInput)
+      this.searchBar.getAutoCompleteKeyword.bind(
+        this.searchBar,
+        this.searchInput
+      )
     );
 
-    this.searchInput.addEventListener(
-      'blur',
-      this.searchBar.hideRecomBox.bind(this.searchBar)
-    );
+    this.searchInput.addEventListener('blur', this.blurHandler.bind(this));
   }
 
-  clickHandler = (e) => {
+  clickHandler(e) {
     e.preventDefault();
     const target = e.target;
 
     switch (target.dataset.search) {
       case 'selectorBtn':
-        this.categorySelector.dropDownMenu.call(this.categorySelector);
+        this.categorySelector.dropDownMenu();
         break;
       case 'searchCategory':
-        this.categorySelector.selectCategory.call(
-          this.categorySelector,
-          target
-        );
+        this.categorySelector.selectCategory(target);
         break;
       case 'submitBtn':
-        this.searchBar.searchKeyword.call(this.searchBar, this.searchInput);
+        this.searchBar.searchKeyword(this.searchInput);
         break;
       default:
         return;
     }
-  };
+  }
+
+  blurHandler({ relatedTarget }) {
+    if (!relatedTarget) {
+      this.searchBar.hideRecomBox();
+      return;
+    }
+    switch (relatedTarget.dataset.blur) {
+      case 'deleteAll':
+        this.searchBar.deleteRecentKeyword();
+        break;
+      case 'modeBtn':
+        this.searchBar.changeRecentMode(relatedTarget, this.searchInput);
+        break;
+      case 'keyword':
+        console.log('키워드 선택');
+        break;
+      default:
+        this.searchBar.hideRecomBox();
+    }
+  }
 }
 
 export { Search };

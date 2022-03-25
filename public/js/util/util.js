@@ -1,5 +1,5 @@
-export function getData(path) {
-  const data = fetch(`http://localhost:3000/${path}`);
+export function getData(URL) {
+  const data = fetch(URL);
   return data.then((response) => response.json());
 }
 
