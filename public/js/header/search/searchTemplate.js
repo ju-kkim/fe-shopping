@@ -20,7 +20,7 @@ const autoCompleteKeywordTemp = (value, keywords) => {
   const html = keywords
     .map((keyword) => {
       const keywordValue = keyword.value;
-      return `<a href="#!" d안ata-blur="keyword">${keywordValue.replace(
+      return `<a href="#!" data-blur="keyword">${keywordValue.replace(
         value,
         `<strong>${value}</strong>`
       )}</a>`;
